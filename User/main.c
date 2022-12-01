@@ -1,4 +1,4 @@
-#include "stm32f10x.h"                  // Device header
+#include "sys.h"                  // Device header
 #include "Delay.h"
 #include "OLED.h"
 #include "Serial.h"
@@ -8,7 +8,7 @@
 #include "SD.h"
 #include "LED.h"
 #include "Key.h"
-#include <stdlib.h>
+#include "malloc.h"
 
 //uint16_t ADC_DATA[4000] = {0};
 //uint16_t i = 0;
@@ -20,10 +20,10 @@ uint8_t KeyNum;
 u32 sd_size;
 u8 sd_buf[6] = {'A', 'B', 'C', 'D', 'E', 'F'};
 
-//PA11 - SC
-//PB13 - SCK
-//PB14 - MISO
-//PB15 - MOSI
+//PA3 - SC
+//PA5 - SCK
+//PA6 - MISO
+//PA7 - MOSI
 
 void SD_Write_Sectorx(u32 sec, u8 *buf)
 {
@@ -38,7 +38,7 @@ void SD_Write_Sectorx(u32 sec, u8 *buf)
 void SD_Read_Sectorx(u32 sec){
 	u8 *buf;
 	u16 i;
-	buf = malloc(512);
+	buf = mymalloc(512);
 	if(SD_ReadDisk(buf, sec, 1) == 0){
 		OLED_ShowString(1, 1, "USART Sending Data...");
 		Serial_Printf("SEXTOR 0 DATA: \r\n");
@@ -46,9 +46,9 @@ void SD_Read_Sectorx(u32 sec){
 			Serial_Printf("%x ", buf[i]);
 		}
 		Serial_Printf("\r\nDATA ENDED\r\n");
-		OLED_ShowString(2, 1, "USART Sending Data Over!");
+		OLED_ShowString(2, 1, "Sending Data Over!");
 	}
-	free(buf);
+	myfree(buf);
 }
 
 int main(void)
@@ -59,7 +59,7 @@ int main(void)
 	LED_Init();
 	Key_Init();
 	
-	while(SD_Init())
+	while(SD_Initialize())
 	{
 		OLED_ShowString(1,1,"SD Card Error!");
 		Serial_Printf("SD Card Error!\r\n");

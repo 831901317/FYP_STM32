@@ -1,6 +1,7 @@
 #ifndef _SD_H
 #define _SD_H
-
+#include "sys.h"	 
+#include <stm32f10x.h>
 
 // SD卡类型定义  
 #define SD_TYPE_ERR     0X00
@@ -43,6 +44,8 @@
 #define MSD_PARAMETER_ERROR        0x40
 #define MSD_RESPONSE_FAILURE       0xFF 							   						 					    	  
 
+#define	SD_CS  PAout(3) 	//SD片选引脚
+
 extern u8 SD_Type;//SD卡的类型
 //函数申明区 
 u8 SD_SPI_ReadWriteByte(u8 data);
@@ -50,7 +53,7 @@ void SD_SPI_SpeedLow(void);
 void SD_SPI_SpeedHigh(void);
 u8 SD_WaitReady(void);							//等待SD卡准备
 u8 SD_GetResponse(u8 Response);					//获得相应
-u8 SD_Init(void);							//初始化
+u8 SD_Initialize(void);							//初始化
 u8 SD_ReadDisk(u8*buf,u32 sector,u8 cnt);		//读块
 u8 SD_WriteDisk(u8*buf,u32 sector,u8 cnt);		//写块
 u32 SD_GetSectorCount(void);   					//读扇区数
