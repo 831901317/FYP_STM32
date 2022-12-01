@@ -6,6 +6,8 @@
 #include "AD.h"
 #include "SPI.h"
 #include "SD.h"
+#include "LED.h"
+#include "Key.h"
 #include <stdlib.h>
 
 //uint16_t ADC_DATA[4000] = {0};
@@ -14,6 +16,7 @@
 uint16_t ADValue;
 float Voltage;
 u8 i=0;
+uint8_t KeyNum;
 u32 sd_size;
 u8 sd_buf[6] = {'A', 'B', 'C', 'D', 'E', 'F'};
 
@@ -53,6 +56,8 @@ int main(void)
 	OLED_Init();
 	Serial_Init();
 	AD_Init();
+	LED_Init();
+	Key_Init();
 	
 	while(SD_Init())
 	{
@@ -102,10 +107,13 @@ int main(void)
 */
 	while (1)
 	{
-		uint8_t KeyNum = 0;
 		KeyNum = Key_GetNum();
 		if(KeyNum == 1){
-			SD_Write_Sectorx(1, sd_buf);
+			LED1_ON();
+			//SD_Write_Sectorx(1, sd_buf);
+			Delay_ms(2000);
+			LED1_OFF();
+			OLED_ShowString(1, 1, "Sending Over!");
 		}
 		Delay_ms(20);
 		

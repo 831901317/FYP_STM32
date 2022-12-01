@@ -36,3 +36,5 @@
 .\objects\main.o: .\Hardware\AD.h
 .\objects\main.o: .\Hardware\SPI.h
 .\objects\main.o: .\Hardware\SD.h
+.\objects\main.o: .\Hardware\LED.h
+.\objects\main.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
