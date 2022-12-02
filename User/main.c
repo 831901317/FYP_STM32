@@ -16,8 +16,6 @@
 uint16_t ADValue;
 float Voltage;
 u8 i=0;
-uint8_t KeyNum;
-u32 sd_size;
 u8 sd_buf[6] = {'A', 'B', 'C', 'D', 'E', 'F'};
 
 //PA3 - SC
@@ -53,23 +51,31 @@ void SD_Read_Sectorx(u32 sec){
 
 int main(void)
 {
+	uint8_t KeyNum;		 
+	u32 sd_size;
+	u8 t=0;	
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	OLED_Init();
 	Serial_Init();
 	AD_Init();
 	LED_Init();
 	Key_Init();
-	
+	mem_init();
+	OLED_ShowString(1,1,"STM32C8T6");
+	OLED_ShowString(2,1,"SD CARD TEST");
+	OLED_ShowString(3,1,"2022/12/02");
+	OLED_ShowString(4,1,"KEY0: READ SECTOR0");
 	while(SD_Initialize())
 	{
 		OLED_ShowString(1,1,"SD Card Error!");
-		Serial_Printf("SD Card Error!\r\n");
+		Delay_ms(500);
+		Serial_Printf("Please Check!");
 		Delay_ms(500);
 	}
 	Serial_Printf("SD Card OK!\r\n");
 	OLED_ShowString(1,1,"SD Card OK!");
 	
-		/* ??SD??? */
-    if(SD_Type == 0x06)
+  if(SD_Type == 0x06)
 	{
 		OLED_ShowString(2,1,"SDV2HC OK!");
 	}
@@ -88,8 +94,8 @@ int main(void)
 
 	OLED_ShowString(3,1,"SD Card Size:   MB");
 	
-	sd_size=SD_GetSectorCount();//?????
-	sd_size=sd_size>>11;  //??SD???   MB
+	sd_size=SD_GetSectorCount();
+	sd_size=sd_size>>11;  
 	Serial_Printf("\nSD size:%dMB\n", sd_size);
 	
 	sd_buf[0]=sd_size/10000+0x30;
@@ -109,13 +115,14 @@ int main(void)
 	{
 		KeyNum = Key_GetNum();
 		if(KeyNum == 1){
-			LED1_ON();
-			//SD_Write_Sectorx(1, sd_buf);
-			Delay_ms(2000);
-			LED1_OFF();
-			OLED_ShowString(1, 1, "Sending Over!");
+			SD_Read_Sectorx(0);
 		}
-		Delay_ms(20);
+		t++;
+		Delay_ms(10);
+		if(t == 20){
+			LED1_Turn();
+			t = 0;
+		}
 		
 		/*
 		ADValue = ADC_ConvertedValue;	
