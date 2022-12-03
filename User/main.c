@@ -15,8 +15,9 @@
 
 uint16_t ADValue;
 float Voltage;
-u8 i=0;
-u8 sd_buf[6] = {'A', 'B', 'C', 'D', 'E', 'F'};
+u8 i;
+u8 sd_buf[6];
+u8 *adValue;
 
 //PA3 - SC
 //PA5 - SCK
@@ -26,8 +27,8 @@ u8 sd_buf[6] = {'A', 'B', 'C', 'D', 'E', 'F'};
 void SD_Write_Sectorx(u32 sec, u8 *buf)
 {
 	if(SD_WriteDisk(buf, sec, 1) == 0){
-		for(int i = 0; i <= 6; i++){
-			Serial_Printf("%c ", buf[i]);
+		for(i = 0; i < 100; i++){
+			Serial_Printf("%x ", buf[i]);
 		}
 	}
 	Serial_Printf("Transfer Over!");
@@ -61,6 +62,7 @@ int main(void)
 	LED_Init();
 	Key_Init();
 	mem_init();
+	adValue = mymalloc(512);
 	OLED_ShowString(1,1,"STM32C8T6");
 	OLED_ShowString(2,1,"SD CARD TEST");
 	OLED_ShowString(3,1,"2022/12/02");
@@ -113,9 +115,16 @@ int main(void)
 */
 	while (1)
 	{
+		ADValue = ADC_ConvertedValue;	
+		Voltage = (float)ADValue / 4095 * 3.3;
+		
 		KeyNum = Key_GetNum();
+		for(i = 0; i < 200; i++){
+			adValue[i] = i;
+		}
 		if(KeyNum == 1){
-			SD_Read_Sectorx(0);
+			SD_Read_Sectorx(1);
+			//SD_Write_Sectorx(1,adValue);
 		}
 		t++;
 		Delay_ms(10);
@@ -123,13 +132,6 @@ int main(void)
 			LED1_Turn();
 			t = 0;
 		}
-		
-		/*
-		ADValue = ADC_ConvertedValue;	
-		Voltage = (float)ADValue / 4095 * 3.3;
-		
-		SD_WriteDisk((u8 *)ADC_ConvertedValue,0,(u8)28172);
-		*/
 		
 		//OLED_ShowNum(1, 9, ADValue, 4);
 		//OLED_ShowNum(2, 9, Voltage, 1);

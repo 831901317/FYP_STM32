@@ -3,11 +3,11 @@
         {
             "name": "Target 1",
             "includePath": [
-                "d:\\Program Files\\STM32Project\\32内部芯片ad采集串口接收\\Start",
-                "d:\\Program Files\\STM32Project\\32内部芯片ad采集串口接收\\Library",
-                "d:\\Program Files\\STM32Project\\32内部芯片ad采集串口接收\\User",
-                "d:\\Program Files\\STM32Project\\32内部芯片ad采集串口接收\\System",
-                "d:\\Program Files\\STM32Project\\32内部芯片ad采集串口接收\\Hardware",
+                "d:\\Program Files\\GithubProject\\FYP_STM32\\Start",
+                "d:\\Program Files\\GithubProject\\FYP_STM32\\Library",
+                "d:\\Program Files\\GithubProject\\FYP_STM32\\User",
+                "d:\\Program Files\\GithubProject\\FYP_STM32\\System",
+                "d:\\Program Files\\GithubProject\\FYP_STM32\\Hardware",
                 "D:\\Program Files\\KEIL\\ARM\\ARMCC\\include",
                 "D:\\Program Files\\KEIL\\ARM\\ARMCC\\include\\rw"
             ],
