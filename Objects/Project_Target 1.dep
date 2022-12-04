@@ -839,7 +839,7 @@ I (.\Library\stm32f10x_usart.h)(0x6388A5B5)
 I (.\Library\stm32f10x_wwdg.h)(0x6388A5B5)
 I (.\Library\misc.h)(0x6388A5B5)
 F (.\Hardware\LED.h)(0x6388A754)()
-F (.\Hardware\Key.c)(0x6388A74F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware --no-multibyte-chars-I.\RTE\_Target_1-I"D:\Program Files\KEIL\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include"-I"D:\Program Files\KEIL\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
+F (.\Hardware\Key.c)(0x638C5904)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware --no-multibyte-chars-I.\RTE\_Target_1-I"D:\Program Files\KEIL\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include"-I"D:\Program Files\KEIL\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
 I (.\Start\stm32f10x.h)(0x6388A5B5)
 I (.\Start\core_cm3.h)(0x6388A5B5)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\stdint.h)(0x588B8344)
@@ -1062,7 +1062,7 @@ I (.\Library\stm32f10x_usart.h)(0x6388A5B5)
 I (.\Library\stm32f10x_wwdg.h)(0x6388A5B5)
 I (.\Library\misc.h)(0x6388A5B5)
 F (.\Hardware\sys.h)(0x6388E7F2)()
-F (.\User\main.c)(0x638BA1BD)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware --no-multibyte-chars-I.\RTE\_Target_1-I"D:\Program Files\KEIL\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include"-I"D:\Program Files\KEIL\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\User\main.c)(0x638CCFAD)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware --no-multibyte-chars-I.\RTE\_Target_1-I"D:\Program Files\KEIL\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include"-I"D:\Program Files\KEIL\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (.\Hardware\sys.h)(0x6388E7F2)
 I (.\Start\stm32f10x.h)(0x6388A5B5)
 I (.\Start\core_cm3.h)(0x6388A5B5)
