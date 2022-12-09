@@ -34,3 +34,7 @@
 .\objects\usmart_config.o: .\Hardware\sys.h
 .\objects\usmart_config.o: .\Hardware\Serial.h
 .\objects\usmart_config.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\usmart_config.o: .\FATFS\exfuns\fattester.h
+.\objects\usmart_config.o: .\FATFS\src\ff.h
+.\objects\usmart_config.o: .\FATFS\src\integer.h
+.\objects\usmart_config.o: .\FATFS\src\ffconf.h

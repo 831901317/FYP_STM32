@@ -12,12 +12,10 @@
 
 //uint16_t ADC_DATA[4000] = {0};
 //uint16_t i = 0;
-
 uint16_t ADValue;
 float Voltage;
-u8 i;
+u8 i = 0;
 u8 sd_buf[6];
-u8 *adValue;
 
 //PA3 - SC
 //PA5 - SCK
@@ -27,11 +25,13 @@ u8 *adValue;
 void SD_Write_Sectorx(u32 sec, u8 *buf)
 {
 	if(SD_WriteDisk(buf, sec, 1) == 0){
-		for(i = 0; i < 100; i++){
-			Serial_Printf("%x ", buf[i]);
+		for(i = 0; i < 255; i++){
+			OLED_ShowString(1, 1, "Transfer DATA... ");
+			Serial_Printf("%d ", buf[i]);
 		}
 	}
 	Serial_Printf("Transfer Over!");
+	OLED_ShowString(2, 1, "Transfer Over!  ");
 }
 
 void SD_Read_Sectorx(u32 sec){
@@ -39,19 +39,20 @@ void SD_Read_Sectorx(u32 sec){
 	u16 i;
 	buf = mymalloc(512);
 	if(SD_ReadDisk(buf, sec, 1) == 0){
-		OLED_ShowString(1, 1, "USART Sending Data...");
+		OLED_ShowString(1, 1, "Sending Data... ");
 		Serial_Printf("SEXTOR 0 DATA: \r\n");
 		for(i = 0; i < 512; i++){
-			Serial_Printf("%x ", buf[i]);
+			Serial_Printf("%d ", buf[i]);
 		}
 		Serial_Printf("\r\nDATA ENDED\r\n");
-		OLED_ShowString(2, 1, "Sending Data Over!");
+		OLED_ShowString(2, 1, "Sending Over!");
 	}
 	myfree(buf);
 }
 
 int main(void)
 {
+	u8 *adValue;
 	uint8_t KeyNum;		 
 	u32 sd_size;
 	u8 t=0;	
@@ -63,10 +64,6 @@ int main(void)
 	Key_Init();
 	mem_init();
 	adValue = mymalloc(512);
-	OLED_ShowString(1,1,"STM32C8T6");
-	OLED_ShowString(2,1,"SD CARD TEST");
-	OLED_ShowString(3,1,"2022/12/02");
-	OLED_ShowString(4,1,"KEY0: READ SECTOR0");
 	while(SD_Initialize())
 	{
 		OLED_ShowString(1,1,"SD Card Error!");
@@ -94,7 +91,7 @@ int main(void)
 		OLED_ShowString(2,1,"MMC OK!");
 	}
 
-	OLED_ShowString(3,1,"SD Card Size:   MB");
+	OLED_ShowString(3,1,"SD Card Size:");
 	
 	sd_size=SD_GetSectorCount();
 	sd_size=sd_size>>11;  
@@ -108,6 +105,7 @@ int main(void)
 	sd_buf[5]='\0';
 	
 	OLED_ShowString(4,1,(char *)sd_buf);
+	OLED_ShowString(4,7,"MB");
 
 /*
 	OLED_ShowString(1, 1, "ADValue:");
@@ -119,30 +117,39 @@ int main(void)
 		Voltage = (float)ADValue / 4095 * 3.3;
 		
 		KeyNum = Key_GetNum();
-		for(i = 0; i < 200; i++){
-			adValue[i] = i;
-		}
+	
+		adValue[i] = ADValue;
+		
 		if(KeyNum == 1){
 			SD_Read_Sectorx(1);
-			//SD_Write_Sectorx(1,adValue);
 		}
+		if(KeyNum == 2 && i <= 255){
+			//SD_WriteDisk(adValue, 1, 1);
+			SD_Write_Sectorx(1,adValue);
+		}
+		if(i > 255){
+			myfree(adValue);
+			adValue = mymalloc(512);
+		}
+		
+		i++;
+		
 		t++;
-		Delay_ms(10);
+		Delay_ms(100);
 		if(t == 20){
 			LED1_Turn();
 			t = 0;
 		}
-		
 		//OLED_ShowNum(1, 9, ADValue, 4);
 		//OLED_ShowNum(2, 9, Voltage, 1);
 		//OLED_ShowNum(2, 11, (uint16_t)(Voltage * 100) % 100, 2);
 		
 		//ADC_DATA[i] = ADValue;
 		
-		//Serial_Printf("\r\nADValue = %d", ADValue);
+		//Serial_Printf("\r\nADValue = %d", adValue[i]);
 		//Serial_Printf("\tVoltage = %f", Voltage);
 		//Serial_Printf("\r\n");
-		//i++;
+
 		//Delay_ms(100);
 	}
 

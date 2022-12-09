@@ -30,3 +30,10 @@
 .\objects\exfuns.o: .\Library\stm32f10x_usart.h
 .\objects\exfuns.o: .\Library\stm32f10x_wwdg.h
 .\objects\exfuns.o: .\Library\misc.h
+.\objects\exfuns.o: .\FATFS\src\ff.h
+.\objects\exfuns.o: .\FATFS\src\integer.h
+.\objects\exfuns.o: .\FATFS\src\ffconf.h
+.\objects\exfuns.o: FATFS\exfuns\fattester.h
+.\objects\exfuns.o: .\System\malloc.h
+.\objects\exfuns.o: .\Hardware\Serial.h
+.\objects\exfuns.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

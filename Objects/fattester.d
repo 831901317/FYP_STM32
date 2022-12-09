@@ -29,3 +29,15 @@
 .\objects\fattester.o: .\Library\stm32f10x_usart.h
 .\objects\fattester.o: .\Library\stm32f10x_wwdg.h
 .\objects\fattester.o: .\Library\misc.h
+.\objects\fattester.o: .\FATFS\src\ff.h
+.\objects\fattester.o: .\FATFS\src\integer.h
+.\objects\fattester.o: .\FATFS\src\ffconf.h
+.\objects\fattester.o: .\Hardware\SD.h
+.\objects\fattester.o: .\Hardware\sys.h
+.\objects\fattester.o: .\USMART\usmart.h
+.\objects\fattester.o: .\USMART\usmart_str.h
+.\objects\fattester.o: .\Hardware\Serial.h
+.\objects\fattester.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\fattester.o: FATFS\exfuns\exfuns.h
+.\objects\fattester.o: .\System\malloc.h
+.\objects\fattester.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

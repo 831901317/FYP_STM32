@@ -339,7 +339,7 @@
               <MiscControls>--no-multibyte-chars</MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\Library;.\User;.\System;.\Hardware;.\FATFS;.\USMART</IncludePath>
+              <IncludePath>.\Start;.\Library;.\User;.\System;.\Hardware;.\FATFS\exfuns;.\USMART;.\FATFS\src</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -804,11 +804,6 @@
           <GroupName>FATFS</GroupName>
           <Files>
             <File>
-              <FileName>ff.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\FATFS\src\ff.h</FilePath>
-            </File>
-            <File>
               <FileName>exfuns.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\FATFS\exfuns\exfuns.c</FilePath>
@@ -832,26 +827,6 @@
               <FileName>cc936.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\FATFS\src\option\cc936.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>USMART</GroupName>
-          <Files>
-            <File>
-              <FileName>usmart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\USMART\usmart.c</FilePath>
-            </File>
-            <File>
-              <FileName>usmart_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\USMART\usmart_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>usmart_str.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\USMART\usmart_str.c</FilePath>
             </File>
           </Files>
         </Group>

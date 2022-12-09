@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 
+extern uint8_t Serial_RxFlag;
 extern uint8_t Serial_TxPacket[];
 extern uint8_t Serial_RxPacket[];
 

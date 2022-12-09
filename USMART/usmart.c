@@ -398,15 +398,15 @@ void usmart_exe(void)
 void usmart_scan(void)
 {
 	u8 sta,len;  
-	if(USART_RX_STA&0x8000)//串口接收完成？
+	if(Serial_RxFlag&0x8000)//串口接收完成？
 	{					   
-		len=USART_RX_STA&0x3fff;	//得到此次接收到的数据长度
-		USART_RX_BUF[len]='\0';	//在末尾加入结束符. 
-		sta=usmart_dev.cmd_rec(USART_RX_BUF);//得到函数各个信息
+		len=Serial_RxFlag&0x3fff;	//得到此次接收到的数据长度
+		Serial_RxPacket[len]='\0';	//在末尾加入结束符. 
+		sta=usmart_dev.cmd_rec(Serial_RxPacket);//得到函数各个信息
 		if(sta==0)usmart_dev.exe();	//执行函数 
 		else 
 		{  
-			len=usmart_sys_cmd_exe(USART_RX_BUF);
+			len=usmart_sys_cmd_exe(Serial_RxPacket);
 			if(len!=USMART_FUNCERR)sta=len;
 			if(sta)
 			{
@@ -427,7 +427,7 @@ void usmart_scan(void)
 				}
 			}
 		}
-		USART_RX_STA=0;//状态寄存器清空	    
+		Serial_RxFlag=0;//状态寄存器清空	    
 	}
 }
 
