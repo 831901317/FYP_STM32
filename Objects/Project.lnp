@@ -35,6 +35,7 @@
 ".\objects\sd.o"
 ".\objects\spi.o"
 ".\objects\sys.o"
+".\objects\flash.o"
 ".\objects\main.o"
 ".\objects\stm32f10x_it.o"
 --library_type=microlib --strict --scatter ".\Objects\Project.sct"

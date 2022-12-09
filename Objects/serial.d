@@ -1,7 +1,7 @@
 .\objects\serial.o: Hardware\Serial.c
 .\objects\serial.o: .\Start\stm32f10x.h
 .\objects\serial.o: .\Start\core_cm3.h
-.\objects\serial.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\serial.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\serial.o: .\Start\system_stm32f10x.h
 .\objects\serial.o: .\User\stm32f10x_conf.h
 .\objects\serial.o: .\Library\stm32f10x_adc.h
@@ -28,5 +28,5 @@
 .\objects\serial.o: .\Library\stm32f10x_usart.h
 .\objects\serial.o: .\Library\stm32f10x_wwdg.h
 .\objects\serial.o: .\Library\misc.h
-.\objects\serial.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\serial.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\serial.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\serial.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

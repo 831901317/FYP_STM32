@@ -2,7 +2,7 @@
 .\objects\sd.o: Hardware\sys.h
 .\objects\sd.o: .\Start\stm32f10x.h
 .\objects\sd.o: .\Start\core_cm3.h
-.\objects\sd.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\sd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\sd.o: .\Start\system_stm32f10x.h
 .\objects\sd.o: .\User\stm32f10x_conf.h
 .\objects\sd.o: .\Library\stm32f10x_adc.h
@@ -32,4 +32,4 @@
 .\objects\sd.o: Hardware\SD.h
 .\objects\sd.o: Hardware\SPI.h
 .\objects\sd.o: Hardware\Serial.h
-.\objects\sd.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\sd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

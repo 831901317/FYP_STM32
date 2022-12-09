@@ -1,5 +1,6 @@
 #ifndef _SPI_H
 #define _SPI_H
+#include "sys.h"
 
 void SPI1_Init(void);			 //???SPI1?
 void SPI1_SetSpeed(u8 SpeedSet); //??SPI1??   
