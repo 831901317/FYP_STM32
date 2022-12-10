@@ -39,3 +39,8 @@
 .\objects\main.o: .\Hardware\SD.h
 .\objects\main.o: .\Hardware\LED.h
 .\objects\main.o: .\System\malloc.h
+.\objects\main.o: .\Hardware\flash.h
+.\objects\main.o: .\FATFS\src\ff.h
+.\objects\main.o: .\FATFS\src\integer.h
+.\objects\main.o: .\FATFS\src\ffconf.h
+.\objects\main.o: .\FATFS\exfuns\exfuns.h

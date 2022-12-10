@@ -7,8 +7,12 @@
 #include "SPI.h"
 #include "SD.h"
 #include "LED.h"
-#include "Key.h"
 #include "malloc.h"
+#include "SD.h"
+#include "flash.h"
+#include "ff.h"
+#include "exfuns.h"
+
 
 //uint16_t ADC_DATA[4000] = {0};
 //uint16_t i = 0;
@@ -52,6 +56,7 @@ void SD_Read_Sectorx(u32 sec){
 
 int main(void)
 {
+	u32 total,free;
 	u8 *adValue;
 	uint8_t KeyNum;		 
 	u32 sd_size;

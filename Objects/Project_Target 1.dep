@@ -1098,7 +1098,7 @@ I (.\Library\misc.h)(0x638886A3)
 I (Hardware\SPI.h)(0x63937AAB)
 I (.\System\Delay.h)(0x63937EF2)
 F (.\Hardware\flash.h)(0x63937F04)()
-F (.\User\main.c)(0x63939021)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware -I .\FATFS\exfuns -I .\USMART -I .\FATFS\src --no-multibyte-chars-IC:\Users\XY\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\User\main.c)(0x63940B35)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware -I .\FATFS\exfuns -I .\USMART -I .\FATFS\src --no-multibyte-chars-IC:\Users\XY\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (.\Hardware\sys.h)(0x6388E3FF)
 I (.\Start\stm32f10x.h)(0x638886A3)
 I (.\Start\core_cm3.h)(0x638886A3)
@@ -1138,6 +1138,11 @@ I (.\Hardware\SPI.h)(0x63937AAB)
 I (.\Hardware\SD.h)(0x6388E1E9)
 I (.\Hardware\LED.h)(0x6388D923)
 I (.\System\malloc.h)(0x638B1E7E)
+I (.\Hardware\flash.h)(0x63937F04)
+I (.\FATFS\src\ff.h)(0x52D56674)
+I (.\FATFS\src\integer.h)(0x52D56674)
+I (.\FATFS\src\ffconf.h)(0x532282B2)
+I (.\FATFS\exfuns\exfuns.h)(0x53228404)
 F (.\User\stm32f10x_conf.h)(0x638886A3)()
 F (.\User\stm32f10x_it.c)(0x638886A3)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\System -I .\Hardware -I .\FATFS\exfuns -I .\USMART -I .\FATFS\src --no-multibyte-chars-IC:\Users\XY\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f10x_it.o --omf_browse .\objects\stm32f10x_it.crf --depend .\objects\stm32f10x_it.d)
 I (User\stm32f10x_it.h)(0x638886A3)
